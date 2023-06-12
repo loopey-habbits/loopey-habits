@@ -5,7 +5,9 @@
   <p>Click <a href="/login">here</a> to login</p>
 {{/if}}
 
+
 <h1>Your habits</h1>
+
 
 {{#each habits}}
   <section>
@@ -19,14 +21,14 @@
       <br />
     </p>
 
-    {{!-- <form method="POST" action="/habits/{{_id}}/edit">
+     <form method="POST" action="/habits/{{_id}}/edit">
       <button>Edit</button>
     </form>
 
 
     <form method="POST" action="/habits/{{_id}}/delete">
       <button>Delete</button>
-    </form> --}}
+    </form> 
 
   </section>
 {{/each}}
