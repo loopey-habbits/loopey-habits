@@ -15,12 +15,12 @@ const User = require("../models/User.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
-// GET /auth/signup
+// GET /signup
 router.get("/signup", isLoggedOut, (req, res) => {
   res.render("auth/signup");
 });
 
-// POST /auth/signup
+// POST /signup
 router.post("/signup", isLoggedOut, (req, res) => {
   const { username, email, password } = req.body;
 
@@ -80,13 +80,13 @@ router.post("/signup", isLoggedOut, (req, res) => {
     });
 });
 
-// GET /auth/login
+// GET /login
 router.get("/login", isLoggedOut, (req, res) => {
   
   res.render("auth/login");
 });
 
-// POST /auth/login
+// POST /login
 router.post("/login", isLoggedOut, (req, res, next) => {
   const { username, email, password } = req.body;
 
@@ -142,7 +142,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
     .catch((err) => next(err));
 });
 
-// GET /auth/logout
+// GET /logout
 router.post("/logout", isLoggedIn, (req, res) => {
   req.session.destroy((err) => {
     if (err) {
