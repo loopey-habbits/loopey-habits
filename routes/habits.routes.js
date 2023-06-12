@@ -4,12 +4,12 @@ const Habit = require("../models/Habit.model");
 const User = require("../models/User.model");
 const router = express.Router();
 
-router.get("/habits-create", isLoggedIn, (req, res, next) => {
+router.get("/habits/create", isLoggedIn, (req, res, next) => {
   res.render("habits/habit-create");
 });
 
 // CREATE: process form
-router.post("/habits/habit-create", isLoggedIn, (req, res, next) => {
+router.post("/habits/create", isLoggedIn, (req, res, next) => {
   const newHabit = {
     title: req.body.title,
     category: req.body.category,
