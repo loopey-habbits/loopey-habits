@@ -1,0 +1,29 @@
+<h2>Create a habit</h2>
+
+<form method="POST" action="/habits/habit-create">
+  <label>
+    Title:
+    <input type="text" name="title" />
+  </label>
+
+  <label>
+    Categories:
+
+    <select name="category">
+      <option value="disabled selected">Choose category</option>
+      <option value="Health">Health and Fitness</option>
+      <option value="Finance">Financial Management</option>
+      <option value="Health">Life Style and Well-being</option>
+      <option value="Health">Personal Development</option>
+      <option value="Health">Productivity</option>
+    </select>
+
+  </label>
+
+  <label>
+    Your personal goals:
+    <textarea name="description" cols="30" rows="4"> </textarea>
+  </label>
+
+  <button type="submit"> Create </button>
+</form>
