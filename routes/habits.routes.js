@@ -19,8 +19,7 @@ router.post("/habits/create", isLoggedIn, (req, res, next) => {
 
   Habit.create(newHabit)
     .then((newHabit) => {
-      res.send("habit created");
-      // res.redirect("/habits");
+      res.redirect("/user-profile");
     })
     .catch((e) => {
       console.log("error creating new habit", e);

@@ -1,0 +1,32 @@
+{{#if userDetails}}
+  <p>Welcome {{userDetails.username}}</p>
+{{else}}
+  <p>You are not logged in</p>
+  <p>Click <a href="/login">here</a> to login</p>
+{{/if}}
+
+<h1>Your habits</h1>
+
+{{#each habits}}
+  <section>
+    <h2>{{this.title}}</h2>
+    <p>
+      Category:
+      {{this.category}}
+      <br />
+      Goals:
+      {{this.goals}}
+      <br />
+    </p>
+
+    {{!-- <form method="POST" action="/habits/{{_id}}/edit">
+      <button>Edit</button>
+    </form>
+
+
+    <form method="POST" action="/habits/{{_id}}/delete">
+      <button>Delete</button>
+    </form> --}}
+
+  </section>
+{{/each}}
