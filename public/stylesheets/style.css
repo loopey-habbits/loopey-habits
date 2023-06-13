@@ -4,10 +4,6 @@ body {
   background-color: rgb(236, 234, 234);
 }
 
-a {
-  color: #00b7ff;
-}
-
 h1 {
   color: 15px;
 }
@@ -16,8 +12,15 @@ nav {
   display: flex;
   justify-content: space-around;
 }
+.image {
+  position: relative;
+}
 
-.text-over-img {
-  z-index: 1;
-  font-size: 1.2em;
+.carousel-caption {
+  font-size: xx-large;
+  color: rgb(250, 246, 14);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
