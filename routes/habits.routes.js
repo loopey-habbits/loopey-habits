@@ -78,7 +78,7 @@ router.get('/user-profile/:habitId/edit', isLoggedIn, (req, res, next) => {
   });
   
 
-// POST /books/:bookId/delete
+// POST /habits/:habitId/delete
 router.post('/user-profile/:habitId/delete', isLoggedIn, (req, res, next) => {
   const { habitId } = req.params;
 
