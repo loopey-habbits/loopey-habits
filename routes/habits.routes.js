@@ -13,7 +13,10 @@ router.get("/user-profile", isLoggedIn, (req, res, next) => {
       const data = {
         habits: habitsFromDB,
       };
-      res.render("auth/user-profile", data);
+      res.render("auth/user-profile", {
+        data,
+        currentUser: req.session.currentUser,
+      });
     })
     .catch((err) => {
       console.log("error getting list of habits from DB", err);

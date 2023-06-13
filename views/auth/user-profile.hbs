@@ -1,15 +1,8 @@
-{{#if user.session.currentUser}}
-  <p>Welcome {{currentUser.username}}</p>
-{{else}}
-  <p>You are not logged in</p>
-  <p>Click <a href="auth/login">here</a> to login</p>
-{{/if}}
-
+<h1>Welcome {{currentUser.username}}</h1>
 
 <h1>Your habits</h1>
 
-
-{{#each habits}}
+{{#each data.habits}}
   <section>
     <h2>{{this.title}}</h2>
     <p>
@@ -21,14 +14,13 @@
       <br />
     </p>
 
-     <form method="POST" action="/habits/{{_id}}/edit">
+    <form method="POST" action="/habits/{{_id}}/edit">
       <button>Edit</button>
     </form>
 
-
     <form method="POST" action="/habits/{{_id}}/delete">
       <button>Delete</button>
-    </form> 
+    </form>
 
   </section>
 {{/each}}
