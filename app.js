@@ -22,8 +22,13 @@ const capitalize = require("./utils/capitalize");
 const projectName = "loopey-habits";
 
 app.locals.appTitle = `${capitalize(projectName)}`;
-
 // 👇 Start handling routes here
+app.use((req, res, next) => {
+    app.locals.currentUser = req.session.currentUser
+    //console.log(app.locals)
+    next();
+
+})
 
 const indexRoutes = require("./routes/index.routes");
 app.use("/", indexRoutes);

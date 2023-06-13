@@ -15,7 +15,7 @@ router.get("/user-profile", isLoggedIn, (req, res, next) => {
       };
       res.render("auth/user-profile", {
         data,
-        currentUser: req.session.currentUser,
+       // currentUser: req.session.currentUser,
       });
     })
     .catch((err) => {
