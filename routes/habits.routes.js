@@ -48,4 +48,50 @@ router.post("/habits/create", isLoggedIn, (req, res, next) => {
     });
 });
 
+// GET /user-profile/:habitId/edit
+router.get('/user-profile/:habitId/edit', isLoggedIn, (req, res, next) => {
+  const { habitId } = req.params;
+  Habit.findById(habitId)
+    .then((habit) => {
+      res.render('habits/habit-edit', { habit });
+    })
+    .catch((err) => {
+      console.log('error retrieving habit from DB', err);
+      next(err);
+    });
+});
+
+
+  // POST /user-profile/:habitId/edit
+  router.post('/user-profile/:habitId/edit', isLoggedIn, (req, res, next) => {
+    const { habitId } = req.params;
+    const { title, category, goals } = req.body;
+  
+    Habit.findByIdAndUpdate(habitId, { title, category, goals }, { new: true })
+      .then((updatedHabit) => {
+        res.redirect(`/user-profile/${updatedHabit.title}`);
+      })
+      .catch((err) => {
+        console.log('error updating habit', err);
+        next(err);
+      });
+  });
+  
+
+// POST /habits/:habitId/delete
+router.post('/user-profile/:habitId/delete', isLoggedIn, (req, res, next) => {
+  const { habitId } = req.params;
+
+  Habit.findByIdAndDelete(habitId)
+    .then(() => {
+      res.redirect('/user-profile');
+    })
+    .catch((err) => {
+      console.log('error deleting habit', err);
+      next(err);
+    });
+});
+
+
+
 module.exports = router;
