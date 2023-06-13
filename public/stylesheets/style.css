@@ -16,3 +16,8 @@ nav {
   display: flex;
   justify-content: space-around;
 }
+
+.text-over-img {
+  z-index: 1;
+  font-size: 1.2em;
+}
