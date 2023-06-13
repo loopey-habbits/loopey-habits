@@ -11,18 +11,25 @@
   
 
   <body>
+<nav>
+  {{#if user.session.currentUser}}
+  <a href="/">HOME</a>
+  <a href="/user-profile">USER PROFILE</a>
+  <a href="/habits/create">CREATE NEW HABIT</a>
 
-     <nav>
-        <a href="/">HOME</a>
-         <a href="/user-profile">USER PROFILE</a>
-         <a href="/habits/create">CREATE NEW HABIT</a>
-         <a href="/auth/signup">SIGNUP</a>
-         <a href="/auth/login">LOGIN</a>
-
-          <form action="/auth/logout" method="POST">
-            <button type="submit">Logout</button>
-         </form>
-      </nav>
+  
+    <form action="/auth/logout" method="POST">
+      <button type="submit">Logout</button>
+    </form>
+  {{else}}
+    <a href="/">HOME</a>
+    <a href="/auth/signup">SIGNUP</a>
+    <a href="/auth/login">LOGIN</a>
+    <form action="/auth/logout" method="POST">
+      <button type="submit">Logout</button>
+    </form>
+  {{/if}}
+</nav>
 
 
     {{{body}}}
