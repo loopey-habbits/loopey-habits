@@ -8,18 +8,17 @@ const router = express.Router();
 
 // GET /habits
 router.get("/user-profile", isLoggedIn, (req, res, next) => {
-
   Habit.find()
-      .then( (habitsFromDB) => {
-           const data = {
-               habits: habitsFromDB
-           }
-           res.render("auth/user-profile", data);
-      })
-      .catch( err => {
-          console.log("error getting list of habits from DB", err);
-          next(err);
-      });
+    .then((habitsFromDB) => {
+      const data = {
+        habits: habitsFromDB,
+      };
+      res.render("auth/user-profile", data);
+    })
+    .catch((err) => {
+      console.log("error getting list of habits from DB", err);
+      next(err);
+    });
 });
 
 // CREATE: habit
@@ -32,8 +31,8 @@ router.post("/habits/create", isLoggedIn, (req, res, next) => {
   const newHabit = {
     title: req.body.title,
     category: req.body.category,
-    owner: req.body.owner,
     goals: req.body.goals,
+    owner: req.session.currentUser._id, //we get owner from current session
   };
 
   Habit.create(newHabit)
@@ -45,6 +44,5 @@ router.post("/habits/create", isLoggedIn, (req, res, next) => {
       next(e);
     });
 });
-
 
 module.exports = router;
