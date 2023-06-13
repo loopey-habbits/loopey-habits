@@ -1,8 +1,8 @@
-{{#if userDetails}}
-  <p>Welcome {{userDetails.username}}</p>
+{{#if user.session.currentUser}}
+  <p>Welcome {{currentUser.username}}</p>
 {{else}}
   <p>You are not logged in</p>
-  <p>Click <a href="/login">here</a> to login</p>
+  <p>Click <a href="auth/login">here</a> to login</p>
 {{/if}}
 
 
