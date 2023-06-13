@@ -1,10 +1,10 @@
 <h1>Welcome {{currentUser.username}}</h1>
 
-<h1>Your habits</h1>
+<h2>Your habits</h2>
 
 {{#each data.habits}}
   <section>
-    <h2>{{this.title}}</h2>
+    <h3>{{this.title}}</h3>
     <p>
       Category:
       {{this.category}}
@@ -15,12 +15,26 @@
     </p>
 
     <form method="POST" action="/habits/{{_id}}/edit">
-      <button>Edit</button>
+      <button class="btn btn-outline-dark">Edit</button>
     </form>
 
     <form method="POST" action="/habits/{{_id}}/delete">
-      <button>Delete</button>
+      <button class="btn btn-outline-dark">Delete</button>
     </form>
 
   </section>
 {{/each}}
+
+{{! <div class="row">
+                <div class="product col-12 col-md-4">
+                    <div class="card">
+                        <img src="./starter-code/img/project-1.jpg" class="card-img-top" alt="" />
+                        <div class="card-body">
+
+                            <p class="card-text">
+                                Some quick example text to build on the card title and make up
+                                the bulk of the card's content.
+                            </p>
+                        </div>
+                    </div>
+                </div> }}
