@@ -51,8 +51,10 @@ router.post("/habits/create", isLoggedIn, (req, res, next) => {
 // GET /user-profile/:habitId/edit
 router.get('/user-profile/:habitId/edit', isLoggedIn, (req, res, next) => {
   const { habitId } = req.params;
+
   Habit.findById(habitId)
     .then((habit) => {
+    
       res.render('habits/habit-edit', { habit });
     })
     .catch((err) => {
