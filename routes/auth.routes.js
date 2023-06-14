@@ -80,7 +80,6 @@ router.post("/signup", isLoggedOut, (req, res) => {
 
 // GET /login
 router.get("/login", isLoggedOut, (req, res) => {
-
   res.render("auth/login");
 });
 
@@ -148,14 +147,9 @@ router.post("/logout", isLoggedIn, (req, res) => {
       return;
     } else {
       //res.render("auth/logout");
-      res.redirect("/")
+      res.redirect("/");
     }
   });
-});
-
-//GET user-profile
-router.get("/user-profile", isLoggedIn, (req, res) => {
-  res.render("auth/user-profile", { userDetails: req.session.currentUser });
 });
 
 module.exports = router;

@@ -13,9 +13,9 @@ router.get("/user-profile", isLoggedIn, (req, res, next) => {
       const data = {
         habits: habitsFromDB,
       };
-      res.render("auth/user-profile", {
+      res.render("users/user-profile", {
         data,
-       // currentUser: req.session.currentUser,
+        // currentUser: req.session.currentUser,
       });
     })
     .catch((err) => {
@@ -48,54 +48,54 @@ router.post("/habits/create", isLoggedIn, (req, res, next) => {
     });
 });
 
+//GET user-profile
+router.get("/user-profile", isLoggedIn, (req, res) => {
+  res.render("user/user-profile", { userDetails: req.session.currentUser });
+});
+
 // GET /user-profile/:habitId/edit
-router.get('/user-profile/:habitId/edit', isLoggedIn, (req, res, next) => {
+router.get("/user-profile/:habitId/edit", isLoggedIn, (req, res, next) => {
   const { habitId } = req.params;
 
   Habit.findById(habitId)
     .then((habit) => {
-    
-      res.render('habits/habit-edit', { habit });
+      res.render("habits/habit-edit", { habit });
     })
     .catch((err) => {
-      console.log('error retrieving habit from DB', err);
+      console.log("error retrieving habit from DB", err);
       next(err);
     });
 });
 
+// POST /user-profile/:habitId/edit
+router.post("/user-profile/:habitId/edit", isLoggedIn, (req, res, next) => {
+  const { habitId } = req.params;
+  const { title, category, goals } = req.body;
+  console.log("=====", { habitId });
 
-  // POST /user-profile/:habitId/edit
-  router.post('/user-profile/:habitId/edit', isLoggedIn, (req, res, next) => {
-    const { habitId } = req.params;
-    const { title, category, goals } = req.body;
-  console.log("=====", {habitId})
-
-    Habit.findByIdAndUpdate(habitId, { title, category, goals }, { new: true })
-      .then((updatedHabit) => {
-        console.log(updatedHabit);
-        res.redirect(`/user-profile/${habitId}/edit`);
-      })
-      .catch((err) => {
-        console.log('error updating habit', err);
-        next(err);
-      });
-  });
-  
+  Habit.findByIdAndUpdate(habitId, { title, category, goals }, { new: true })
+    .then((updatedHabit) => {
+      console.log(updatedHabit);
+      res.redirect(`/user-profile`);
+    })
+    .catch((err) => {
+      console.log("error updating habit", err);
+      next(err);
+    });
+});
 
 // POST /habits/:habitId/delete
-router.post('/user-profile/:habitId/delete', isLoggedIn, (req, res, next) => {
+router.post("/user-profile/:habitId/delete", isLoggedIn, (req, res, next) => {
   const { habitId } = req.params;
 
   Habit.findByIdAndDelete(habitId)
     .then(() => {
-      res.redirect('/user-profile');
+      res.redirect("/user-profile");
     })
     .catch((err) => {
-      console.log('error deleting habit', err);
+      console.log("error deleting habit", err);
       next(err);
     });
 });
-
-
 
 module.exports = router;
