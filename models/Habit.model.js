@@ -5,10 +5,11 @@ const habitSchema = new Schema(
     title: String,
     category: String,
     goals: String,
+    // counter: ,
     owner: {
       type: Types.ObjectId,
       ref: "User",
-    }
+    },
   },
   {
     timestamps: true,
@@ -16,4 +17,6 @@ const habitSchema = new Schema(
 );
 
 module.exports = model("Habit", habitSchema);
- 
+
+// Habit.findById(id)
+// .then((foundHabit) => { Habit.findByIdAndUpdate(id, {counter: foundHabit.counter + 1}, {new: true} }
