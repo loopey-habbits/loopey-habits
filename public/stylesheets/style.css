@@ -24,9 +24,3 @@ nav {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
-.welcome-user {
-  background-color: rgb(36, 149, 89);
-  color: rgb(255, 255, 126);
-  width: 50%;
-}
