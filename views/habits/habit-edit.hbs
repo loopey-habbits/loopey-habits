@@ -1,31 +1,36 @@
-<h2>EDIT YOUR HABIT: {{habit.title}}</h2>
+<h2 class="navbar-brand fs-1">EDIT YOUR HABIT: {{habit.title}}</h2>
 
 <div>
   <form action="/user-profile/{{habit._id}}/edit" method="post">
 
-    <div>
+    <div class="mb-3">
       <label>
         Title:
         <input type="text" name="title" value="{{habit.title}}" />
       </label>
     </div>
 
-    <div>
-      <label>
+    <div class="mb-3">
+      <label class="form-label">
         Category:
-        <input type="text" name="category" value="{{habit.category}}" />
+        <select
+          class="form-select"
+          type="text"
+          name="category"
+          value="{{habit.category}}"
+        />
       </label>
     </div>
 
-    <div>
+    <div class="mb-3">
       <label>
         Your personal Goals:
-        <textarea name="goals" cols="30" rows="4">{{habit.goals}}</textarea>
+        <textarea name="goals">{{habit.goals}}</textarea>
       </label>
     </div>
 
     <div>
-      <button>Save changes</button>
+      <button type="submit" class="btn btn-outline-dark">Save changes</button>
     </div>
 
   </form>
