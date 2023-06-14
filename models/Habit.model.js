@@ -5,7 +5,7 @@ const habitSchema = new Schema(
     title: String,
     category: String,
     goals: String,
-    // counter: ,
+    counter: Number,
     owner: {
       type: Types.ObjectId,
       ref: "User",

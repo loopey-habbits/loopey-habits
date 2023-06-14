@@ -49,9 +49,23 @@ router.post("/habits/create", isLoggedIn, (req, res, next) => {
 });
 
 //GET user-profile
-router.get("/user-profile", isLoggedIn, (req, res) => {
-  res.render("user/user-profile", { userDetails: req.session.currentUser });
-});
+router.get("/user-profile", isLoggedIn, (req, res, next) => {
+  Habit.find()
+    .then((habitsFromDB) => {
+      const data = {
+        habits: habitsFromDB,
+      }
+    .then((foundHabit) => { 
+        Habit.findByIdAndUpdate(habitId, {counter: foundHabit.counter + 1}, {new: true});
+        res.render("users/user-profile", {data,})
+     })
+    })
+      .catch((err) => {
+      console.log("error getting list of habits from DB", err);
+      next(err);
+    });
+  });
+
 
 // GET /user-profile/:habitId/edit
 router.get("/user-profile/:habitId/edit", isLoggedIn, (req, res, next) => {
