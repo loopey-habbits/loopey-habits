@@ -24,7 +24,7 @@ module.exports = app => {
                 maxAge: 1000 * 60 * 60 * 24 // 24h
             },
             store: MongoStore.create({
-                mongoUrl: process.env.MONGODB_URI || "mongodb+srv://loopeyhabits:ironhack23@cluster0.zagsiqj.mongodb.net/?retryWrites=true&w=majority",
+                mongoUrl: process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/loopey-habits",
                 ttl: 60 * 60 * 24 // 60sec * 60min * 24h => 1 day
             })
         })

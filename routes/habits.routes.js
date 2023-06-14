@@ -68,10 +68,12 @@ router.get('/user-profile/:habitId/edit', isLoggedIn, (req, res, next) => {
   router.post('/user-profile/:habitId/edit', isLoggedIn, (req, res, next) => {
     const { habitId } = req.params;
     const { title, category, goals } = req.body;
-  
+  console.log("=====", {habitId})
+
     Habit.findByIdAndUpdate(habitId, { title, category, goals }, { new: true })
       .then((updatedHabit) => {
-        res.redirect(`/user-profile/${updatedHabit.title}`);
+        console.log(updatedHabit);
+        res.redirect(`/user-profile/${habitId}/edit`);
       })
       .catch((err) => {
         console.log('error updating habit', err);
