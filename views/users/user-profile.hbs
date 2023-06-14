@@ -25,14 +25,15 @@
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
           Your Habit Tracker:
-          <form method="POST" action="/user-profile/{{_id}}/tracker">
-            <button type="submit" class="btn btn-outline-dark">0</button>
-          </form>
-        </li>
-        <li class="list-group-item">
-          Update your tracker by clicking on:
           <form method="POST" action="/user-profile/{{_id}}/tracker-update">
-            <button type="submit" class="btn btn-outline-dark">+</button>
+            <input
+              type="number"
+              name="counter"
+              class="btn btn-outline-dark"
+              value="{{this.counter}}"
+            />
+            Update your tracker by clicking on:
+            <button type="submit" class="btn btn-outline-dark">save</button>
           </form>
         </li>
       </ul>
