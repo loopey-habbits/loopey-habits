@@ -24,31 +24,3 @@ nav {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
-.welcome-user {
-  background-color: #f25454;
-
-}
-
-.card-template {
-  background-color:   #fffedd;
-  
-}
-
-.card-body {
-  color:rgb(236, 234, 234);
-  display:flex;
-  flex-direction: row;
-  justify-content: space-between;
-  
-}
-
-.card-body-welcome {
-  color:rgb(236, 234, 234);
-
-}
-
-
-
-
-
