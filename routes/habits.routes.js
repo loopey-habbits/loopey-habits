@@ -8,14 +8,16 @@ const router = express.Router();
 
 // GET /habits
 router.get("/user-profile", isLoggedIn, (req, res, next) => {
-  Habit.find()
-    .then((habitsFromDB) => {
+  userId = req.session.currentUser._id;
+
+  Habit.find({ owner: userId })
+    .then((userHabitsFromDB) => {
       const data = {
-        habits: habitsFromDB,
+        habits: userHabitsFromDB,
       };
       res.render("users/user-profile", {
         data,
-        // currentUser: req.session.currentUser,
+        currentUser: req.session.currentUser
       });
     })
     .catch((err) => {
@@ -49,13 +51,14 @@ router.post("/habits/create", isLoggedIn, (req, res, next) => {
     });
 });
 
-//GET user-profile
+//GET user-profile and update counter
 router.get("/user-profile", isLoggedIn, (req, res, next) => {
   Habit.find()
     .then((habitsFromDB) => {
       const data = {
-        habits: habitsFromDB,
-      }.then((foundHabit) => {
+          habits: habitsFromDB,
+          }
+      .then((foundHabit) => {
         Habit.findByIdAndUpdate(
           habitId,
           { counter: foundHabit.counter + 1 },
