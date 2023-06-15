@@ -1,45 +1,50 @@
 <h2 class="navbar-brand fs-1">EDIT YOUR HABIT: {{habit.title}}</h2>
 
-<div>
-  <form action="/user-profile/{{habit._id}}/edit" method="post">
+<form action="/user-profile/{{habit._id}}/edit" method="post">
 
-    <div class="mb-3">
-      <label>
-        Title:
-        <input type="text" name="title" value="{{habit.title}}" />
-      </label>
-    </div>
+  <div class="form-floating">
+    <input
+      type="name"
+      class="form-control"
+      style="width: 250px;"
+      id="floatingInputGrid"
+      name="title"
+      value="{{habit.title}}"
+    />
+    <label for="floatingInputGrid">Rewrite your habit</label>
+  </div>
 
-    <div class="mb-3">
-      <label class="form-label">
-        Category:
-        <select
-          class="form-select"
-          type="text"
-          name="category"
-          value="{{habit.category}}"
-        >
-          <option value="disabled selected">Choose category</option>
-          <option value="Health and Fitness">Health and Fitness</option>
-          <option value="Financial Management">Financial Management</option>
-          <option value="Life Style and Well-being">Life Style and Well-being</option>
-          <option value="Personal Development">Personal Development</option>
-          <option value="Productivity">Productivity</option>
-        </select>
-      </label>
-    </div>
+  <div class="form-floating">
+    <input
+      type="name"
+      class="form-control"
+      style="width: 250px;"
+      id="floatingInputGrid"
+      name="goals"
+      value="{{habit.goals}}"
+    />
+    <label for="floatingInputGrid">Rewrite your goal</label>
+  </div>
 
-    <div class="mb-3">
-      <label>
-        Your personal Goals:
-        <textarea name="goals">{{habit.goals}}</textarea>
-      </label>
-    </div>
+  <select
+      class="form-select"
+      name="category"
+      value="{{habit.category}}"
+      id="floatingSelect"
+      aria-label="Floating label select example"
+      style="width: 250px;"
+    >
+      <option selected>Choose category</option>
+      <option value="Health and Fitness">Health and Fitness</option>
+      <option value="Financial Management">Financial Management</option>
+      <option value="Life Style and Well-being">Life Style and Well-being</option>
+      <option value="Personal Development">Personal Development</option>
+      <option value="Productivity">Productivity</option>
+    </select>
+  </div>
 
-    <div>
-      <button type="submit" class="btn btn-outline-dark">Save changes</button>
-    </div>
+  <div>
+    <button type="submit" class="btn btn-outline-dark">Save changes</button>
+  </div>
 
-  </form>
-
-</div>
+</form>
