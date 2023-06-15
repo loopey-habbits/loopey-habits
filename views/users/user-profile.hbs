@@ -19,8 +19,8 @@
         alt="to-do-list-img"
       />
       <div class="card-body-title">
-        <h5 class="card-title">{{this.title}}</h5>
-        <p class="card-text">Your Goals:{{this.goals}}</p>
+        <h5 class="card-title text-center">{{this.title}}</h5>
+        <p class="card-text text-center">Your Goals:{{this.goals}}</p>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
@@ -29,11 +29,11 @@
             <input
               type="number"
               name="counter"
-              class="btn btn-outline-dark"
+              class="btn btn-outline-dark btn"
               value="{{this.counter}}"
             />
             Update your tracker by clicking on:
-            <button type="submit" class="btn btn-outline-dark">save</button>
+            <button type="submit" class="btn btn-outline-dark">Save</button>
           </form>
         </li>
       </ul>
@@ -49,17 +49,5 @@
         </a>
       </div>
     </div>
-
-    {{!-- <h3>{{this.title}}</h3>
-    <p>
-      Category:
-      {{this.category}}
-      <br />
-      Goals:
-      {{this.goals}}
-      <br />
-    </p>
---}}
-
   </section>
 {{/each}}
