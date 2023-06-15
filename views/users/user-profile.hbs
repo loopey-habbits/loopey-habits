@@ -10,10 +10,13 @@
 
 {{#if data.habits.length}}
 
+ <section>
 {{#each data.habits}}
-  <section>
+ 
 
-    <div class="card-template" style="width: 18rem;">
+    <div class="card-template" style="width: 16rem; container">
+      <div class="row">
+        <div class="col-sm">
       <img
         class="img-fluid"
         src="../../images/to-do-list-image.jpg"
@@ -21,10 +24,10 @@
         alt="to-do-list-img"
       />
       <div class="card-body-title">
-        <h5 class="card-title text-center">{{this.title}}</h5>
+        <h4 class="card-title text-center">{{this.title}}</h4>
         <p class="card-text text-center">Your Goals:{{this.goals}}</p>
       </div>
-      <ul class="list-group list-group-flush">
+      <ul class="list-group ">
         <li class="list-group-item">
           Your Habit Tracker:
           <form method="POST" action="/user-profile/{{_id}}/tracker-update">
@@ -33,8 +36,8 @@
               name="counter"
               class="btn btn-light"
               value="{{this.counter}}"
-            />
-            Update your tracker by clicking on:
+            /> <br>
+            Update Tracker:
             <button type="submit" class="btn btn-outline-dark">Save</button>
           </form>
         </li>
@@ -42,17 +45,20 @@
 
       <div class="card-body">
         <a href="/user-profile/{{_id}}/edit" class="card-link">
-          <button class="btn btn-outline-dark">Edit</button>
+          <button class="btn btn-outline-dark edit-btn">Edit</button>
         </a>
         <a href="#" class="card-link">
           <form method="POST" action="/user-profile/{{_id}}/delete">
-            <button class="btn btn-outline-dark">Delete</button>
+            <button class="btn btn-outline-dark delete-btn">Delete</button>
           </form>
         </a>
       </div>
+      </div>
+      </div>
     </div>
-  </section>
+ 
 {{/each}}
+</section>
 
 {{else}}
  <div class="create-btn-container">

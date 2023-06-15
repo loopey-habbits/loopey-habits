@@ -77,6 +77,8 @@ nav {
 
 .card-template {
   background-color: #e2e2e1;
+  margin: 2em;
+  box-shadow: 0px 0px 4px 4px #f25454;
 }
 
 .card-body {
@@ -88,6 +90,11 @@ nav {
 
 .card-body-welcome {
   color: rgb(236, 234, 234);
+  padding: 2em;
+}
+
+.card-title {
+  font-weight: bold;
 }
 
  .create-btn-container {
@@ -103,5 +110,29 @@ color: rgb(82, 79, 79);
 font-size: x-large;
 font-weight: 100;
 }
+
+section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.list-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.edit-btn {
+  margin: 1em;
+}
+
+.delete-btn {
+  margin: 1em;
+}
+
+
+
+
 
 
