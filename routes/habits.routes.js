@@ -17,7 +17,7 @@ router.get("/user-profile", isLoggedIn, (req, res, next) => {
       };
       res.render("users/user-profile", {
         data,
-        currentUser: req.session.currentUser
+        currentUser: req.session.currentUser,
       });
     })
     .catch((err) => {
@@ -56,9 +56,8 @@ router.get("/user-profile", isLoggedIn, (req, res, next) => {
   Habit.find()
     .then((habitsFromDB) => {
       const data = {
-          habits: habitsFromDB,
-          }
-      .then((foundHabit) => {
+        habits: habitsFromDB,
+      }.then((foundHabit) => {
         Habit.findByIdAndUpdate(
           habitId,
           { counter: foundHabit.counter + 1 },
@@ -118,6 +117,7 @@ router.post("/user-profile/:habitId/delete", isLoggedIn, (req, res, next) => {
     });
 });
 
+// Counter POST
 router.post(
   "/user-profile/:habitId/tracker-update",
   isLoggedIn,
