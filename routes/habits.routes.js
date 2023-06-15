@@ -35,6 +35,7 @@ router.post("/habits/create", isLoggedIn, (req, res, next) => {
     title: req.body.title,
     category: req.body.category,
     goals: req.body.goals,
+    counter: 0,
     owner: req.session.currentUser._id, //we get owner from current session
   };
 
@@ -54,18 +55,20 @@ router.get("/user-profile", isLoggedIn, (req, res, next) => {
     .then((habitsFromDB) => {
       const data = {
         habits: habitsFromDB,
-      }
-    .then((foundHabit) => { 
-        Habit.findByIdAndUpdate(habitId, {counter: foundHabit.counter + 1}, {new: true});
-        res.render("users/user-profile", {data,})
-     })
+      }.then((foundHabit) => {
+        Habit.findByIdAndUpdate(
+          habitId,
+          { counter: foundHabit.counter + 1 },
+          { new: true }
+        );
+        res.render("users/user-profile", { data });
+      });
     })
-      .catch((err) => {
+    .catch((err) => {
       console.log("error getting list of habits from DB", err);
       next(err);
     });
-  });
-
+});
 
 // GET /user-profile/:habitId/edit
 router.get("/user-profile/:habitId/edit", isLoggedIn, (req, res, next) => {
@@ -111,5 +114,25 @@ router.post("/user-profile/:habitId/delete", isLoggedIn, (req, res, next) => {
       next(err);
     });
 });
+
+router.post(
+  "/user-profile/:habitId/tracker-update",
+  isLoggedIn,
+  (req, res, next) => {
+    console.log(req.body, "body");
+    console.log(req.params, "params");
+    const { habitId } = req.params;
+    const { counter } = req.body;
+    Habit.findByIdAndUpdate(habitId, { counter }, { new: true })
+      .then((updatedHabit) => {
+        console.log(updatedHabit);
+        res.redirect("/user-profile");
+      })
+      .catch((err) => {
+        console.log("error updating habit", err);
+        next(err);
+      });
+  }
+);
 
 module.exports = router;
