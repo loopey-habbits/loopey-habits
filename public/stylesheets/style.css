@@ -11,11 +11,51 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
+ 
 }
 
-h1 {
-  color: 15px;
+.container-h1 {
+  background-color: #f25454;
+  padding-top: 3em;
+  display: flex;
+  justify-content: center;
 }
+.text-loopey-habits {
+  color: white;
+}
+
+.container-h2 {
+  background-color: #a7a4a4;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.container-button {
+ display: flex;
+ justify-content: center;
+ padding-top: 3em;
+ text-align: center;
+}
+
+.button-login {
+  background-color: #f25454;
+  border-radius: 12px;
+  padding: 3em;
+  box-shadow: 0px 0px 4px 4px white;
+  border-style: none;
+}
+
+.button-login a {
+  color: white;
+  text-decoration: none;
+  font-size: x-large;
+}
+
+
 
 nav {
   display: flex;
@@ -31,7 +71,7 @@ nav {
 }
 
 .card-template {
-  background-color: #d5d147;
+  background-color: #e2e2e1;
 }
 
 .card-body {
