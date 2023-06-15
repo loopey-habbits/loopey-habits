@@ -1,16 +1,27 @@
 <h2>Create a habit</h2>
 
 <form method="POST" action="/habits/create">
-  <label>
-    Title:
-    <input type="text" name="title" />
-  </label>
+  <div class="form-floating">
+  <textarea name="title" class="form-control" style="width: 250px;" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+  <label for="floatingTextarea2">Name your habit</label>
+</div>
 
-  <label>
-    Categories:
+  <div class="form-floating">
+  <textarea name="goals" class="form-control" style="width: 250px;" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+  <label for="floatingTextarea2">Write your goals</label>
+</div>
+    
+  
+  <div class="form-floating">
 
-    <select name="category">
-      <option value="disabled selected">Choose category</option>
+    <select
+      class="form-select"
+      name="category"
+      id="floatingSelect"
+      aria-label="Floating label select example"
+      style="width: 250px;"
+    >
+      <option selected>Choose category</option>
       <option value="Health and Fitness">Health and Fitness</option>
       <option value="Financial Management">Financial Management</option>
       <option value="Life Style and Well-being">Life Style and Well-being</option>
@@ -18,14 +29,6 @@
       <option value="Productivity">Productivity</option>
     </select>
 
-  </label>
-  <br />
-
-  <label>
-    Your personal goals:
-    <br />
-    <textarea name="goals" cols="30" rows="4"> </textarea>
-  </label>
 
   <button class="btn btn-outline-dark" type="submit"> Create </button>
 </form>
