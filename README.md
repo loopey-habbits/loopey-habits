@@ -33,12 +33,11 @@ We developed a CRUD application to let the user track their habits, create, upda
 3. Create a `.env` file on the root of your project and enter both you APIs keys there:
 
    ```sh
-   PORT=3000
+    PORT=3000
     SESSION_SECRET='keyboard cat'
    ```
 
-environment variables: explain that I'd need to create a .env file and add environment variables (remember to detail all the variables that I may need to create, if I need to create an account to get some credentials for cloudinary or an api etc.)
-how to run the application (eg. npm run dev)
+4. In your terminal write `npm run dev`
 
 ## Demo
 
@@ -46,6 +45,6 @@ https://loopey-habits.adaptable.app/
 
 ## Contributors
 
-João Faria - [GitHub] (https://github.com/jfaria23)
+João Faria - [GitHub](https://github.com/jfaria23)
 
-Maria Friedemann - [GitHub] (https://github.com/softcake1988)
+Maria Friedemann - [GitHub](https://github.com/softcake1988)
