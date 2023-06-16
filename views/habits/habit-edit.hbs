@@ -27,21 +27,20 @@
   </div>
 
   <select
-      class="form-select mb-3"
-      name="category"
-      value="{{habit.category}}"
-      id="floatingSelect"
-      aria-label="Floating label select example"
-      style="width: 250px;"
-    >
-      <option selected>{{habit.category}}</option>
-      <option value="Health and Fitness">Health and Fitness</option>
-      <option value="Financial Management">Financial Management</option>
-      <option value="Life Style and Well-being">Life Style and Well-being</option>
-      <option value="Personal Development">Personal Development</option>
-      <option value="Productivity">Productivity</option>
-    </select>
-  </div>
+    class="form-select mb-3"
+    name="category"
+    value="{{habit.category}}"
+    id="floatingSelect"
+    aria-label="Floating label select example"
+    style="width: 250px;"
+  >
+    <option selected disabled>{{habit.category}}</option>
+    <option value="Health and Fitness">Health and Fitness</option>
+    <option value="Financial Management">Financial Management</option>
+    <option value="Life Style and Well-being">Life Style and Well-being</option>
+    <option value="Personal Development">Personal Development</option>
+    <option value="Productivity">Productivity</option>
+  </select>
 
   <div>
     <button type="submit" class="btn btn-outline-dark mb-3">Save changes</button>
