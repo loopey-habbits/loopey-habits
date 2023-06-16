@@ -1,60 +1,17 @@
-## MVP
+# Loopey Habits
 
-- Register
-- Login
-- Log out
-- should have "Trello like" base
-- Using Cards as habit trackers
-  - add counter
-  - redirect to a new view when clicked on
-- On top right should appear a summary of the habits and the total amount
-- Card should redirect to a new view
+![Screenshot 2023-06-16 at 09 49 58](https://github.com/loopey-habbits/loopey-habits/assets/127213868/f32292f3-9e4a-420d-8cc2-3f990d759ff1)
 
-# Logged out
+## Description
 
-- Can see the default habits but cant interact with the Cards
+We developed a CRUD application to let the user track their habits, create, update and delete them.
 
-# Login
+## Instructions
 
-- Functionality to add habits to our list
+how to install dependencies (npm install)
+environment variables: explain that I'd need to create a .env file and add environment variables (remember to detail all the variables that I may need to create, if I need to create an account to get some credentials for cloudinary or an api etc.)
+how to run the application (eg. npm run dev)
 
-# Model user
+## Demo
 
-- name
-- username
-- password
-
-# Model Card
-
-- Title
-- Image
-- Counter
-
-# Summary
-
-- array of id's
-
-## Bonus
-
-- Delete account
-- Add functionality to the Cards
-- Categories for habits
-- Calendar display
-
-/\*
-
-User
-Habit --> CRUD
--- title
--- description
--- picture
--- category ["health", "sports", "nutrition"]
-
-Options:
-a. all habits are public (similar to what we did in class)
-b. habits are private for each user
--- we need to store who created a habit ex. owner
--- when we display the list of habits, we need to filter those for current user
-c. when signup, user can choose from list of habits + they can add their own
-
-\*/
+Link to the deployed version of your project (adaptable)
